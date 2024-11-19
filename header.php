@@ -47,24 +47,28 @@
                 <!-- Logo -->
                 <div class="header-left">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        <a href="/"><img src="assets/img/logo/logo.png" alt=""></a>
                     </div>
                     <div class="menu-wrapper  d-flex align-items-center">
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav> 
                                 <ul id="navigation">                                                                                          
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="blog.html">Blog</a>
+                                    <li class="active"><a href="/">Home</a></li>
+                                    <li><a href="about.php">About</a></li>
+                                    <li><a href="services.php">Services</a></li>
+                                    <li class="number mobile-menu-v"><a href="tel:+919967454474">Call Now For Pickup</a></li>
+                                    <li class="mobile-menu-v">
+                                    <a href="https://wa.me/9967454474/?text=Hello%20QuickWashMumbai%2C%20I%20would%20like%20to%20schedule%20a%20laundry%20pickup." target="_blank" class="whatsapp-link" style="font-size: 22px;color: #6785ff;">
+                                        Chat with Us For Pickup <i class="fab fa-whatsapp" ></i></li>
+                                    <!-- <li><a href="blog.php">Blog</a>
                                         <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Element</a></li>
+                                            <li><a href="blog.php">Blog</a></li>
+                                            <li><a href="blog_details.php">Blog Details</a></li>
+                                            <li><a href="elements.php">Element</a></li>
                                         </ul>
-                                    </li>
-                                     <!-- <li><a href="contact.html">Contact</a></li> -->
+                                    </li> -->
+                                     <!-- <li><a href="contact.php">Contact</a></li> -->
                                 </ul>
                             </nav>
                         </div>
