@@ -4,12 +4,3 @@ margin-left: 10PX;
 color: palegreen;
 font-weight: 500;
 }
-.mobile-menu-v {
-    display: none !important;
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-v {
-        display: block !important;
-    }
-}
