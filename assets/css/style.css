@@ -6741,3 +6741,12 @@ del {
         height: 111px;
     }
 }
+.mobile-menu-v {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .mobile-menu-v {
+        display: block !important;
+    }
+}
+
