@@ -2289,11 +2289,11 @@ hr {
     padding: 73px 30px
 }
 
-@media (max-width: 575px) {
+/* @media (max-width: 575px) {
     .w-padding2 {
         padding: 70px 25px
     }
-}
+} */
 
 .w-padding3 {
     padding: 34px 0
@@ -3185,7 +3185,7 @@ hr {
 
 @media (max-width: 575px) {
     .wantToWork-area .wantToWork-caption h2 {
-        font-size: 25px
+        font-size: 25px;
     }
 }
 
@@ -3198,21 +3198,24 @@ hr {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
     .wantToWork-area .wantToWork-btn {
         float: left;
-        margin-top: 30px
+        margin-top: 30px;
+        width: 58%;
     }
 }
 
 @media (max-width: 575px) {
     .wantToWork-area .wantToWork-btn {
         float: left;
-        margin-top: 30px
+        margin-top: 30px;
+        width: 58%;
     }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .wantToWork-area .wantToWork-btn {
         float: left;
-        margin-top: 30px
+        margin-top: 30px;
+        width: 58%;
     }
 }
 
