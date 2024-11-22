@@ -667,7 +667,6 @@ hr {
     color: #888
 }
 
-#scrollUp,
 #back-top {
     height: 50px;
     width: 50px;
@@ -681,9 +680,7 @@ hr {
     border: none;
 }
 
-@media (max-width: 575px) {
-
-    #scrollUp,
+@media (max-width: 996px) {
     #back-top {
         right: 38px;
         bottom: 137px;
@@ -696,9 +693,9 @@ hr {
     line-height: 50px
 }
 
-#scrollUp:hover {
+/* #scrollUp:hover {
     color: #fff
-}
+} */
 
 .sticky-bar {
     left: 0;
@@ -2718,12 +2715,6 @@ hr {
 
 .main-header .header-left .logo {
     padding-left: 50px
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .main-header .header-left .logo {
-        padding-left: 15px
-    }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -6828,4 +6819,26 @@ body {
         padding-right:10%;
         padding-left: 10%;
     }
+}
+
+.mobile-connectus {
+    display: none;
+}
+
+@media (max-width:996px) {
+    .mobile-connectus {
+        display: block;
+padding-top: 5px;
+    }
+}
+
+@media (max-width:996px) {
+    .main-header .header-left .logo  img{
+        width: 75%;
+
+    }
+}
+
+.mobile-connectus h4 {
+    margin-bottom: 0;
 }
