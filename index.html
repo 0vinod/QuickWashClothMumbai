@@ -1,589 +1,1027 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Premium Laundry</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshClean Laundry - Premium Laundry Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- CSS here -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="assets/css/slicknav.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/progressbar_barfiller.css">
-    <link rel="stylesheet" href="assets/css/gijgo.css">
-    <link rel="stylesheet" href="assets/css/animate.min.css">
-    <link rel="stylesheet" href="assets/css/animated-headline.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/themify-icons.css">
-    <link rel="stylesheet" href="assets/css/slick.css">
-    <link rel="stylesheet" href="assets/css/nice-select.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/slick-theme.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), 
+                        url('https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="bubbles" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="50" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="80" r="1" fill="rgba(255,255,255,0.12)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23bubbles)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.5s forwards;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideUp 1s ease 0.7s forwards;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideUp 1s ease 0.9s forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+            color: #764ba2;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-details {
+            list-style: none;
+        }
+
+        .contact-details li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-details i {
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .social-links {
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #667eea;
+            transform: translateY(-3px) scale(1.2);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
-                </div>
-            </div>
-        </div>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
     </div>
-    <!-- Preloader Start -->
-    <header>
-        <!-- Header Start -->
-        <div class="header-area">
-            <div class="main-header header-sticky">
-                <!-- Logo -->
-                <div class="header-left">
-                    <div class="logo" style="display: flex;">
-                        <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
-                        <a class="mobile-connectus" href="https://wa.me/9967454474/?text=Hello%20QuickWashMumbai%2C%20I%20would%20like%20to%20schedule%20a%20laundry%20pickup." target="_blank" class="whatsapp-link" style="color: #6785ff;border: 1px solid #7e94ef7d;border-radius: 10px;margin-top: 2px;padding: 5px;background-color: #7e94ef7d;"><h4>Connect Us<i class="fa-brands fa-whatsapp"></i></h4></a>
-                    </div>
-                    <div class="menu-wrapper  d-flex align-items-center">
-                        <!-- Main-menu -->
-                        <div class="main-menu d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li class="number mobile-menu-v"><a href="tel:+919967454474">Call Now For Pickup</a>
-                                    </li>
-                                    <li class="mobile-menu-v">
-                                        <a href="https://wa.me/9967454474/?text=Hello%20QuickWashMumbai%2C%20I%20would%20like%20to%20schedule%20a%20laundry%20pickup."
-                                            target="_blank" class="whatsapp-link"
-                                            style="font-size: 22px;color: #6785ff;">
-                                            Chat with Us For Pickup <i class="fab fa-whatsapp"></i>
-                                    </li>
-                                    <!-- <li><a href="blog.html">Blog</a>
-                                        <ul class="submenu">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog_details.html">Blog Details</a></li>
-                                            <li><a href="elements.html">Element</a></li>
-                                        </ul>
-                                    </li> -->
-                                    <!-- <li><a href="contact.html">Contact</a></li> -->
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <div class="header-right d-none d-lg-block">
-                    <a href="tel:+919967454474" class="header-btn1"><img src="assets/img/icon/call.png"
-                            alt="">+919967454474</a>
 
-                    <a href="https://wa.me/9967454474/?text=Hello%20QuickWashMumbai%2C%20I%20would%20like%20to%20schedule%20a%20laundry%20pickup.%20Please%20let%20me%20know%20the%20next%20available%20slot."
-                        class="header-btn2">Make an Appointment<i class="fa-brands fa-whatsapp"></i></a>
-                </div>
-                <!-- Mobile Menu -->
-                <div class="col-12">
-                    <div class="mobile_menu d-block d-lg-none"></div>
-                </div>
-            </div>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <div class="logo">FreshClean</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <!-- Header End -->
     </header>
-    <main>
-        <!--? slider Area Start-->
-        <section class="centerslide sliders">
-            <div>
-                <img class="banner-img" src="assets/img/banner/banner1.png">
-            </div>
-            <div>
-                <img class="banner-img" src="assets/img/banner/banner2.png">
-            </div>
-            <div>
-                <img class="banner-img" src="assets/img/banner/banner3.png">
-            </div>
 
-        </section>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Premium Laundry Care</h1>
+            <p>Experience the ultimate in fabric care with our professional laundry services</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
 
-        <section>
-            <div>
-                <h4 class="headings">
-                    Our Exclusive Services
-                </h4>
-                <h5 class="text-center">Don't Miss Out! Limited-Time Offers Available Now</h5>
-            </div>
-            <div class="row p-4 row-box-height-box">
-                <div class="col-lg-3 col-md-3 col-6 box-height-box">
-                    <div class="text-center">
-                        <figure class="pt-3">
-                            <img width="70" src="assets/img/icon/cloths.png">
-                        </figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">Laundry Ironing by KG</h4>
-                            <p class="elementor-image-box-description">Only Rs.69/- per kg – Fresh & Crisp Guaranteed!</p>
-                        </div>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Regular Laundry" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-tshirt"></i>
                     </div>
+                    <h3>Regular Laundry</h3>
+                    <p>Professional washing and drying for your everyday clothing items with premium detergents and fabric care.</p>
                 </div>
-        
-                <div class="col-lg-3 col-md-3 col-6 box-height-box">
-                    <div class="text-center">
-                        <figure class="pt-3"><img width="70" src="assets/img/icon/cloths2.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">Expert Dry Cleaning</h4>
-                            <p class="elementor-image-box-description">From Rs.49/- – We Treat Your Clothes with Care!</p>
-                        </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Premium Cleaning" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
                     </div>
+                    <h3>Premium Cleaning</h3>
+                    <p>Specialized treatment for delicate fabrics, designer clothing, and luxury items requiring extra care.</p>
                 </div>
-        
-                <div class="col-lg-3 col-md-3 col-6 box-height-box">
-                    <div class="text-center">
-                        <figure class="pt-3"><img width="70" src="assets/img/icon/cloths3.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">Steam Ironing</h4>
-                            <p class="elementor-image-box-description">Just Rs.19/- per piece – Experience Smooth & Wrinkle-Free Clothes!</p>
-                        </div>
+                <div class="service-card fade-in">
+                    <img src="https://plus.unsplash.com/premium_photo-1681487855134-d6c0434f91f8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8UGlja3VwJTIwJTI2JTIwRGVsaXZlcnl8ZW58MHx8MHx8fDA%3D" alt="Pickup & Delivery" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
                     </div>
+                    <h3>Pickup & Delivery</h3>
+                    <p>Convenient door-to-door service. Schedule pickup and delivery at your preferred time and location.</p>
                 </div>
-        
-                <div class="col-lg-3 col-md-3 col-6 box-height-box">
-                    <div class="text-center">
-                        <figure class="pt-3"><img loading="lazy" width="70" src="assets/img/icon/shoes.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">Shoe Cleaning</h4>
-                            <p class="elementor-image-box-description">From Rs.249/- per pair – Bring Your Shoes Back to Life!</p>
-                        </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1489274495757-95c7c837b101?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ironing & Pressing" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-iron"></i>
                     </div>
+                    <h3>Ironing & Pressing</h3>
+                    <p>Professional ironing and pressing services to keep your clothes crisp and wrinkle-free.</p>
                 </div>
-            </div>
-        </section>
-
-        
-        <!-- <section>
-            <div>
-                <h4 class="headings">
-                    Services
-                </h4>
-                <h5>Current Offer is Going </h5>
-            </div>
-            <div class="row p-4">
-                <div class="col-lg-3 col-md-3 col-6 box-height-box ">
-                    <div class="text-center">
-                        <figure class="pt-3">
-                            <img width="70" src="assets/img/icon/cloths.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">LAUNDRY IRON BY KG</h4>
-                            <p class="elementor-image-box-description">Starts from Rs.69/-</p>
-                        </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bedding & Linens" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-bed"></i>
                     </div>
+                    <h3>Bedding & Linens</h3>
+                    <p>Specialized cleaning for comforters, blankets, curtains, and other large household items.</p>
                 </div>
-
-                <div class="col-lg-3 col-md-3 col-6 box-height-box ">
-                    <div class="text-center">
-                        <figure class="pt-3"><img width="70"
-                                src="assets/img/icon/cloths2.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">DRY CLEAN</h4>
-                            <p class="elementor-image-box-description">Starts from Rs 49/-</p>
-                        </div>
+                <div class="service-card fade-in">
+                    <img src="https://plus.unsplash.com/premium_vector-1683140904084-deee1095ea8e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZXhwcmVzcyUyMGRlbGl2ZXJ5fGVufDB8fDB8fHww" alt="Express Service" class="service-image">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
+                    <h3>Express Service</h3>
+                    <p>Same-day and next-day service available for urgent cleaning needs and last-minute requirements.</p>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6 box-height-box ">
-                    <div class="text-center">
-                        <figure class="pt-3"><img width="70"
-                                src="assets/img/icon/cloths3.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">STEAM IRON</h4>
-                            <p class="elementor-image-box-description">Rs.19/Pc</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-6 box-height-box ">
-                    <div class="text-center">
-                        <figure class="pt-3"><img loading="lazy" width="70"
-                                src="assets/img/icon/shoes.png"></figure>
-                        <div class="elementor-image-box-content">
-                            <h4 class="elementor-image-box-title">SHOE CLEANING</h4>
-                            <p class="elementor-image-box-description">Starts from Rs.249/Pair</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- slider Area End -->
-        <!--? Services Area Start -->
-        <section class="services-area pt-5 border-bottom">
-            <div class="container">
-                <div class="row justify-content-center mobile-marginindex">
-                    <div class="col-xl-7 col-lg-8">
-                        <div class="section-tittle text-center">
-                            <h5 class="headings element">
-                                Our Process
-                                </h5>
-                            <h2>This is how we work</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col">
-                        <div class="single-cat text-center">
-                            <div class="cat-icon process">
-                                <img src="assets/img/banner/process.png" alt="">
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services End -->
-        <!--? Offer-services Start  -->
-        <!-- <section class="offer-services pb-bottom2">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7 col-lg-8">
-                        <div class="section-tittle text-center mb-55">
-                            <span class="element">Services</span>
-                            <h2>Services we offer</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutters">
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-offers">
-                            <img src="assets/img/gallery/offers1.png" alt="" class=" w-100">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-offers">
-                            <img src="assets/img/gallery/offers2.png" alt="" class=" w-100">
-                            <div class="offers-caption text-center">
-                                <div class="cat-icon">
-                                    <img src="assets/img/icon/offers-icon1.png" alt="">
-                                </div>
-                                <div class="cat-cap">
-                                    <h5><a href="services.html">Cloth laundry</a></h5>
-                                    <p>The automated process starts as soon as your clothes go into the machine. The
-                                        outcome is gleaming clothes!!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-offers">
-                            <img src="assets/img/gallery/offers2.png" alt="" class=" w-100">
-                            <div class="offers-caption text-center">
-                                <div class="cat-icon">
-                                    <img src="assets/img/icon/offers-icon1.png" alt="">
-                                </div>
-                                <div class="cat-cap">
-                                    <h5><a href="services.html">Cloth ironing</a></h5>
-                                    <p>The automated process starts as soon as your clothes go into the machine. The
-                                        outcome is gleaming clothes!!</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="single-offers">
-                            <img src="assets/img/gallery/offers4.png" alt="" class=" w-100">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-        <!-- Offer-services End  -->
-        <!--? Want To work -->
-        <!-- <section class="container">
-            <section class="wantToWork-area" data-background="assets/img/gallery/section_bg01.png">
-                <div class="wants-wrapper w-padding2">
-                    <div class="row align-items-center justify-content-between">
-                        <div class="col-xl-8 col-lg-9 col-md-7">
-                            <div class="wantToWork-caption wantToWork-caption2">
-                                <h2>Call us for a service</h2>
-                                <h2>We Deliver & Pickup</h2>
-                                <p>We deliver and pick up laundry from select areas in Mumbai: Hiranandani - Powai,
-                                    Kanjurmarg, and surrounding areas only.</p>
-
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-5">
-                            <a href="#" class="btn wantToWork-btn"><img src="assets/img/icon/call2.png" alt=""> Learn
-                                More</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section> -->
-        <!-- Want To work End -->
-        <!-- Testimonials_start -->
-        <section class="testimonials-area testimonials-overly  position-relative">
-            <div class="container">
-                <div class="border-bottom section-padding40 ">
-                    <div class="row">
-                        <div class="col-xl-12 ">
-                            <!-- testmonial-image -->
-                            <div class="testmonial-nav text-center">
-                                <div class="testmonial-thumb">
-                                    <img src="assets/img/gallery/testimonila1.png" alt="">
-                                </div>
-                                <div class="testmonial-thumb">
-                                    <img src="assets/img/gallery/testimonila2.png" alt="">
-                                </div>
-                                <div class="testmonial-thumb">
-                                    <img src="assets/img/gallery/testimonila3.png" alt="">
-                                </div>
-                                <div class="testmonial-thumb">
-                                    <img src="assets/img/gallery/testimonila2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="testmonial-item-active text-center">
-                                <!-- testimonial-single-items -->
-                                <div class="testmonial-item ">
-                                    <p class="pera">The automated process starts as soon as your clothes go into the<br>
-                                        machine. The outcome is gleaming clothes!</p>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p> - Rupaya</p>
-                                </div>
-                                <!-- testimonial-single-items -->
-                                <div class="testmonial-item ">
-                                    <p class="pera">The automated process starts as soon as your clothes go into the<br>
-                                        machine. The outcome is gleaming clothes!</p>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p> - Rupaya</p>
-                                </div>
-                                <!-- testimonial-single-items -->
-                                <div class="testmonial-item ">
-                                    <p class="pera">The automated process starts as soon as your clothes go into the<br>
-                                        machine. The outcome is gleaming clothes!</p>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p> - Rupaya</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Testimonials_end -->
-        <!--?  Map Area start  -->
-        <div class="Map-area">
-            <div class="mapswrapper"><iframe class="" width="100%" loading="lazy" allowfullscreen
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=hanuman%20mandir%2C%20powai%20hanuman%20road%20400076&zoom=10&maptype=roadmap"></iframe><a
-                    href="https://www.lawod.com/gym-league-codes/">Gym League Codes</a>
-                <style>
-                    .mapswrapper {
-                        background: #fff;
-                        position: relative
-                    }
-
-                    .mapswrapper iframe {
-                        border: 0;
-                        position: relative;
-                        z-index: 2
-                    }
-
-                    .mapswrapper a {
-                        color: rgba(0, 0, 0, 0);
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        z-index: 0
-                    }
-                </style>
             </div>
         </div>
-        <!-- Map Area End -->
-    </main>
-    <footer>
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="single-footer-caption mb-30">
-                                <!-- logo -->
-                                <div class="footer-logo mb-35">
-                                    <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-                                </div>
-                                <div class="footer-tittle">
-                                    <div class="footer-pera">
-                                        <p>We Deliver & Pickup <br /> We deliver and pick up laundry from select areas
-                                            in Mumbai: Hiranandani - Powai, Kanjurmarg, and surrounding areas only.
-                                    </div>
-                                </div>
-                                <!-- social -->
-                                <div class="footer-social">
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Services </h4>
-                                <ul>
-                                    <li><a href="#">- Dry Cleaning</a></li>
-                                    <li><a href="#">- Dry Clean</a></li>
-                                    <li><a href="#">- Ironing Services</a></li>
-                                    <!-- <li><a href="#">- Laundry Service London</a></li>
-                            <li><a href="#">- Laundry App</a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Get in touch</h4>
-                                <ul>
-                                    <li class="number"><a href="tel:+919967454474">+91 99674 54474</a></li>
-                                    <li><a href="mailto:mrdinu177@gmail.com">mrdinu177@gmail.com</a></li>
-                                    <li><a href="#">R.n.4 Shadana Power Laundry, Hanuman Road, Powai 40076</a></li>
-                                    <li><strong>Owner:</strong> Dinesh Kanojia</li>
-                                </ul>
-                            </div>
+    </section>
 
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Why Choose FreshClean?</h2>
+                    <p>With over 15 years of experience in the laundry industry, we've built our reputation on delivering exceptional service and pristine results. Our state-of-the-art facility uses the latest technology and eco-friendly processes to ensure your clothes receive the best care possible.</p>
+                    <p>From everyday essentials to luxury items, we treat every piece with the attention it deserves. Our trained professionals understand different fabric types and use specialized techniques to maintain the quality and longevity of your garments.</p>
+                    <div class="stats-container">
+                        <div class="stat-item fade-in">
+                            <span class="stat-number">25K+</span>
+                            <span class="stat-label">Happy Customers</span>
                         </div>
+                        <div class="stat-item fade-in">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Satisfaction Rate</span>
+                        </div>
+                        <div class="stat-item fade-in">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://media.istockphoto.com/id/1330479354/photo/customer-experience-concept-happy-client-giving-excellent-services-rating-for-satisfaction-by.webp?a=1&b=1&s=612x612&w=0&k=20&c=m6o8pPiflxu_5Lf6BAS9eP0U5pYHMT0Avx5nlveMhYk=" alt="Professional Laundry Service">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Work in Action</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Modern Laundry Facility">
+                    <div class="gallery-overlay">
+                        <h4>State-of-the-Art Equipment</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Professional Staff">
+                    <div class="gallery-overlay">
+                        <h4>Expert Care Team</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1493836512294-502baa1986e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Clean Clothes">
+                    <div class="gallery-overlay">
+                        <h4>Perfect Results Every Time</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Eco-Friendly Process">
+                    <div class="gallery-overlay">
+                        <h4>Eco-Friendly Solutions</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://media.istockphoto.com/id/1372628045/photo/waitress-handling-a-food-order-to-a-delivery-person-at-a-dark-kitchen.jpg?s=612x612&w=0&k=20&c=CuR2jrliMy6X2Y55cDZVITtwvQSlnF1haKXis6o-onI=" alt="Delivery Service">
+                    <div class="gallery-overlay">
+                        <h4>Convenient Pickup & Delivery</h4>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://media.istockphoto.com/id/2150522257/photo/businessman-holding-and-showing-the-best-quality-assurance-with-five-stars-iso-certification.webp?a=1&b=1&s=612x612&w=0&k=20&c=OMLSJ6_hQFrZfaA2TsxPe-umBhYDgVU9b8ac5cxMij0=" alt="Quality Control">
+                    <div class="gallery-overlay">
+                        <h4>Rigorous Quality Control</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- footer-bottom area -->
-        <div class="footer-bottom-area section-bg2" data-background="assets/img/gallery/footer-bg.png">
-            <div class="container">
-                <div class="footer-border">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-12 ">
-                            <div class="footer-copy-right text-center">
-                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;
-                                    <script>document.write(new Date().getFullYear());</script> All rights reserved.
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                </p>
-                            </div>
-                        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
                     </div>
+                    <h3>Eco-Friendly</h3>
+                    <p>We use environmentally safe detergents and energy-efficient processes.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Guarantee</h3>
+                    <p>100% satisfaction guarantee on all our cleaning services.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Easy Booking</h3>
+                    <p>Schedule services online or through our mobile app with just a few clicks.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Affordable Prices</h3>
+                    <p>Competitive pricing with no hidden fees and transparent cost structure.</p>
                 </div>
             </div>
         </div>
-        <!-- Footer End-->
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to experience the best laundry service in town? Contact us today!</p>
+                    <ul class="contact-details">
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span><a href="tel:+919967454474">+91 99674 54474</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:mrdinu177@gmail.com">mrdinu177@gmail.com</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>R.n.4 Shadana Power Laundry, Hanuman Road, Powai 40076</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 7AM-8PM, Sat-Sun: 8AM-6PM</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <strong>Owner:</strong> Dinesh Kanojia
+                        </li>
+                    </ul>
+                </div>
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone">
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p>&copy; 2025 FreshClean Laundry. All rights reserved.</p>
     </footer>
-    <!-- Scroll Up -->
-    <div id="back-top">
-        <a href="https://wa.me/9967454474/?text=Hello%20QuickWashMumbai%2C%20I%20would%20like%20to%20schedule%20a%20laundry%20pickup.%20Please%20let%20me%20know%20the%20next%20available%20slot."
-            style="font-size: xxx-large;font-weight: 700;"><i class="fa-brands fa-whatsapp"></i></a>
-    </div>
-
-    <!-- JS here -->
-
-    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- Jquery Mobile Menu -->
-    <script src="./assets/js/jquery.slicknav.min.js"></script>
-
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/slick.min.js"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/animated.headline.js"></script>
-    <script src="./assets/js/jquery.magnific-popup.js"></script>
-
-    <!-- Date Picker -->
-    <script src="./assets/js/gijgo.min.js"></script>
-    <!-- Nice-select, sticky -->
-    <script src="./assets/js/jquery.nice-select.min.js"></script>
-    <script src="./assets/js/jquery.sticky.js"></script>
-    <!-- Progress -->
-    <script src="./assets/js/jquery.barfiller.js"></script>
-
-    <!-- counter , waypoint,Hover Direction -->
-    <script src="./assets/js/jquery.counterup.min.js"></script>
-    <script src="./assets/js/waypoints.min.js"></script>
-    <script src="./assets/js/jquery.countdown.min.js"></script>
-    <script src="./assets/js/hover-direction-snake.min.js"></script>
-
-    <!-- contact js -->
-    <script src="./assets/js/contact.js"></script>
-    <script src="./assets/js/jquery.form.js"></script>
-    <script src="./assets/js/jquery.validate.min.js"></script>
-    <script src="./assets/js/mail-script.js"></script>
-    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-
-    <!-- Jquery Plugins, main Jquery -->
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/main.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $(".centerslide").slick({
-                autoplay: true,
-                autoplaySpeed: 2000,
-                dots: true,
-                fade: true,
-                arrows: true,
-                prevArrow: '<button type="button" class="slick-prev"><i class="ti-angle-left"></i></button>',
-                nextArrow: '<button type="button" class="slick-next"><i class="ti-angle-right"></i></button>',
-                responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        infinite: true,
-                    }
-                },
-                {
-                    breakpoint: 991,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false
-                    }
-                },
-                {
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false
-                    }
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    loadingOverlay.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-                ]
             });
         });
-    </script>
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.style.opacity = '0.7';
+            
+            // Simulate form submission
+            setTimeout(() => {
+                submitBtn.textContent = 'Message Sent!';
+                submitBtn.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.opacity = '';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Service card hover effects
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.backgroundPosition = `center ${rate}px`;
+        });
     </script>
 </body>
-
 </html>
